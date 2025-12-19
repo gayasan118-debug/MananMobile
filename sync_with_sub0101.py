@@ -27,11 +27,11 @@ base_code = """<div class="sticky_bottom_bar">
 def get_code(dir_path):
     link = ""
     if dir_path == '.':
-        link = "bbs/write.php.html?bo_table=customer"
+        link = "#contact"
     elif dir_path == 'contents':
-        link = "../bbs/write.php.html?bo_table=customer"
+        link = "../index.htm#contact"
     elif dir_path == 'bbs':
-        link = "write.php.html?bo_table=customer"
+        link = "../index.htm#contact"
     
     return base_code.replace("LINK_PLACEHOLDER", link)
 
