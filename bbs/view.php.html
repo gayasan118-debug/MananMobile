@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes">
+<title>만안역 중앙하이츠 포레 - 언론보도</title>
+<link rel="stylesheet" href="../css/default.css">
+<link rel="stylesheet" href="../css/reset.css">
+<style>
+    body { background: #f9f9f9; padding: 20px; font-family: 'Noto Sans KR', sans-serif; }
+    .article_wrap { max-width: 800px; margin: 0 auto; background: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+    .article_head { border-bottom: 2px solid #333; padding-bottom: 20px; margin-bottom: 30px; }
+    .article_head h1 { font-size: 26px; font-weight: 700; color: #111; line-height: 1.4; margin-bottom: 10px; word-break: keep-all; }
+    .article_info { font-size: 14px; color: #888; display: flex; justify-content: space-between; }
+    
+    .article_body { font-size: 16px; line-height: 1.8; color: #333; min-height: 400px; }
+    .article_body img { max-width: 100%; margin: 30px auto; display: block; border-radius: 5px; }
+    .article_body p { margin-bottom: 20px; word-break: keep-all; text-align: justify; }
+    
+    .btn_wrap { margin-top: 50px; text-align: center; border-top: 1px solid #eee; padding-top: 30px; }
+    .btn_list { display: inline-block; padding: 12px 40px; background: #333; color: #fff; text-decoration: none; font-weight: 500; border-radius: 5px; transition: 0.2s; }
+    .btn_list:hover { background: #111; }
+
+    @media (max-width: 768px) {
+        body { padding: 10px; }
+        .article_wrap { padding: 20px; }
+        .article_head h1 { font-size: 20px; }
+    }
+</style>
+</head>
+<body>
+
+<div class="article_wrap">
+    <div class="article_head">
+        <h1 id="newsTitle">기사 제목이 로딩 중입니다...</h1>
+        <div class="article_info">
+            <span id="newsDate">2025.00.00</span>
+            <span>언론사 : 파이낸셜뉴스</span>
+        </div>
+    </div>
+    
+    <div class="article_body">
+        <p><strong>[만안역 중앙하이츠 포레 보도자료]</strong></p>
+        <p>경기 안양시 만안구 일대에 들어서는 '만안역 중앙하이츠 포레'가 수요자들의 뜨거운 관심을 받고 있다. 뛰어난 입지와 미래 가치를 모두 갖춘 이 단지는 KTX광명역세권 생활권을 공유하며, 월판선 만안역(예정) 개통 시 더블 역세권 프리미엄을 누릴 수 있을 것으로 기대된다.</p>
+        <img src="../images/sub11.jpg" alt="조감도">
+        <p>분양 관계자는 "안양 만안구는 비규제지역의 풍선효과와 대규모 개발 호재가 맞물려 실수요자는 물론 투자자들의 문의가 이어지고 있다"며, "특히 합리적인 분양가와 혁신적인 평면 설계가 호평을 받고 있어 조기 완판이 예상된다"고 전했다.</p>
+        <p>만안역 중앙하이츠 포레는 지하 3층~지상 21층 규모로 조성되며, 전용면적 59㎡~75㎡ 중소형 평형 위주로 구성된다. 입주는 2026년 예정이다.</p>
+        <br>
+        <p style="color:#666; font-size:13px; background:#f5f5f5; padding:15px;">※ 본 기사는 예시 데이터입니다. 실제 보도된 내용과는 차이가 있을 수 있습니다.</p>
+    </div>
+
+    <div class="btn_wrap">
+        <a href="javascript:history.back()" class="btn_list">목록으로</a>
+    </div>
+</div>
+
+<script>
+    // URL 파라미터에 따라 제목과 날짜 변경
+    function getParam(name) {
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+        return results ? decodeURIComponent(results[1]) : null;
+    }
+
+    var newsData = {
+        '1': {
+            title: "안양 ‘만안역 중앙하이츠 포레’ 선착순 동호수 지정 계약... 전매 제한 無",
+            date: "2025.11.20"
+        },
+        '2': {
+            title: "월판선 만안역(예정) 초역세권 프리미엄... ‘만안역 중앙하이츠 포레’ 눈길",
+            date: "2025.11.15"
+        },
+        '3': {
+            title: "안양 만안구 신축 아파트 ‘중앙하이츠 포레’ 115세대 본격 분양",
+            date: "2025.11.02"
+        },
+        '4': {
+            title: "수도권 서남부 교통 요충지 안양 만안역... 미래가치 기대감↑",
+            date: "2025.10.28"
+        }
+    };
+
+    var id = getParam('id');
+    if(id && newsData[id]) {
+        document.getElementById('newsTitle').innerText = newsData[id].title;
+        document.getElementById('newsDate').innerText = newsData[id].date;
+    }
+</script>
+
+</body>
+</html>
