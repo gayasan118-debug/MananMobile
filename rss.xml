@@ -1,93 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>만안역 중앙하이츠 포레</title>
     <link>https://xn--om2b95a99s7bt4be5et2dc4ov7m6nd.shop/</link>
-    <description>만안역 중앙하이츠 포레 공식 홈페이지</description>
+    <description>만안역 중앙하이츠 포레 공식 홈페이지 - 분양 정보, 평면도, 오시는 길 안내</description>
+    <language>ko</language>
+    <lastBuildDate>Tue, 27 Jan 2025 09:00:00 +0900</lastBuildDate>
+    <atom:link href="https://xn--om2b95a99s7bt4be5et2dc4ov7m6nd.shop/rss.xml" rel="self" type="application/rss+xml" />
+    
     <item>
-      <title>메인 페이지</title>
+      <title>메인 페이지 - 만안역 중앙하이츠 포레</title>
       <link>https://xn--om2b95a99s7bt4be5et2dc4ov7m6nd.shop/index.htm</link>
-      <description>만안역 중앙하이츠 포레 메인</description>
+      <description>KTX광명역세권 생활권과 월판선 만안역(예정) 프리미엄을 누리는 안양의 중심</description>
+      <pubDate>Tue, 27 Jan 2025 09:00:00 +0900</pubDate>
+      <guid>https://xn--om2b95a99s7bt4be5et2dc4ov7m6nd.shop/index.htm</guid>
     </item>
+    
     <item>
       <title>사업안내 - 사업개요</title>
       <link>https://xn--om2b95a99s7bt4be5et2dc4ov7m6nd.shop/contents/sub01_01.php.html</link>
-      <description>사업개요 안내</description>
+      <description>석수동 적성아파트 가로주택정비사업조합 사업개요 및 건축 규모 안내</description>
+      <pubDate>Tue, 27 Jan 2025 09:00:00 +0900</pubDate>
+      <guid>https://xn--om2b95a99s7bt4be5et2dc4ov7m6nd.shop/contents/sub01_01.php.html</guid>
     </item>
-    <item>
-      <title>사업안내 - 브랜드 소개</title>
-      <link>https://xn--om2b95a99s7bt4be5et2dc4ov7m6nd.shop/contents/sub01_02.php.html</link>
-      <description>브랜드 소개</description>
-    </item>
-    <item>
-      <title>사업안내 - 오시는길</title>
-      <link>https://xn--om2b95a99s7bt4be5et2dc4ov7m6nd.shop/contents/sub01_03.php.html</link>
-      <description>오시는길 안내</description>
-    </item>
+
     <item>
       <title>프리미엄 - 입지환경</title>
       <link>https://xn--om2b95a99s7bt4be5et2dc4ov7m6nd.shop/contents/sub02_01.php.html</link>
-      <description>입지환경 안내</description>
+      <description>교통, 교육, 생활, 비전 - 모든 것이 완벽한 만안역 중앙하이츠 포레의 입지환경</description>
+      <pubDate>Tue, 27 Jan 2025 09:00:00 +0900</pubDate>
+      <guid>https://xn--om2b95a99s7bt4be5et2dc4ov7m6nd.shop/contents/sub02_01.php.html</guid>
     </item>
-    <item>
-      <title>프리미엄 - 프리미엄7</title>
-      <link>https://xn--om2b95a99s7bt4be5et2dc4ov7m6nd.shop/contents/sub02_02.php.html</link>
-      <description>프리미엄7 안내</description>
-    </item>
-    <item>
-      <title>단지안내 - 단지배치도</title>
-      <link>https://xn--om2b95a99s7bt4be5et2dc4ov7m6nd.shop/contents/sub03_01.php.html</link>
-      <description>단지배치도 안내</description>
-    </item>
-    <item>
-      <title>단지안내 - 동·호수 배치도</title>
-      <link>https://xn--om2b95a99s7bt4be5et2dc4ov7m6nd.shop/contents/sub03_02.php.html</link>
-      <description>동·호수 배치도 안내</description>
-    </item>
-    <item>
-      <title>단지안내 - 커뮤니티</title>
-      <link>https://xn--om2b95a99s7bt4be5et2dc4ov7m6nd.shop/contents/sub03_03.php.html</link>
-      <description>커뮤니티 안내</description>
-    </item>
+
     <item>
       <title>세대안내 - 평면안내</title>
       <link>https://xn--om2b95a99s7bt4be5et2dc4ov7m6nd.shop/contents/sub04_01.php.html</link>
-      <description>평면안내</description>
+      <description>공간의 미학을 담은 혁신 평면 설계 (59㎡, 66㎡, 75㎡)</description>
+      <pubDate>Tue, 27 Jan 2025 09:00:00 +0900</pubDate>
+      <guid>https://xn--om2b95a99s7bt4be5et2dc4ov7m6nd.shop/contents/sub04_01.php.html</guid>
     </item>
+
     <item>
-      <title>세대안내 - 마감재 리스트</title>
-      <link>https://xn--om2b95a99s7bt4be5et2dc4ov7m6nd.shop/contents/sub04_02.php.html</link>
-      <description>마감재 리스트</description>
-    </item>
-    <item>
-      <title>분양안내 - 분양일정</title>
-      <link>https://xn--om2b95a99s7bt4be5et2dc4ov7m6nd.shop/contents/sub06_01.php.html</link>
-      <description>분양일정 안내</description>
-    </item>
-    <item>
-      <title>분양안내 - 입주자 모집공고</title>
-      <link>https://xn--om2b95a99s7bt4be5et2dc4ov7m6nd.shop/contents/sub06_03.php.html</link>
-      <description>입주자 모집공고</description>
-    </item>
-    <item>
-      <title>분양안내 - 주택시장 안정화 대책</title>
-      <link>https://xn--om2b95a99s7bt4be5et2dc4ov7m6nd.shop/contents/sub06_04.php.html</link>
-      <description>주택시장 안정화 대책</description>
-    </item>
-    <item>
-      <title>홍보센터 - 홍보영상</title>
-      <link>https://xn--om2b95a99s7bt4be5et2dc4ov7m6nd.shop/contents/sub07_02.php.html</link>
-      <description>홍보영상</description>
-    </item>
-    <item>
-      <title>홍보센터 - 언론보도</title>
-      <link>https://xn--om2b95a99s7bt4be5et2dc4ov7m6nd.shop/bbs/board.php.html</link>
-      <description>언론보도 게시판</description>
-    </item>
-    <item>
-      <title>관심고객등록</title>
+      <title>고객센터 - 관심고객등록</title>
       <link>https://xn--om2b95a99s7bt4be5et2dc4ov7m6nd.shop/bbs/write.php.html</link>
-      <description>관심고객등록 페이지</description>
+      <description>관심고객 등록 및 분양 상담 문의</description>
+      <pubDate>Tue, 27 Jan 2025 09:00:00 +0900</pubDate>
+      <guid>https://xn--om2b95a99s7bt4be5et2dc4ov7m6nd.shop/bbs/write.php.html</guid>
     </item>
   </channel>
 </rss>
