@@ -1358,21 +1358,31 @@
             // EmailJS 초기화
             emailjs.init("ClFUoaELQQNLN8FPG");
 
-            // 전송할 데이터 준비
+            // 선택된 타입 값 가져오기 (방어 코드)
+            var selectedType = f.querySelector('input[name="wr_4"]:checked');
+            var typeValue = selectedType ? selectedType.value : "선택안함";
+
+            // 전송할 데이터 준비 (변수명은 EmailJS 템플릿의 {{변수명}}과 일치해야 함)
             var templateParams = {
                 name: f.wr_name.value,
                 phone: f.wr_1.value + '-' + f.wr_2.value + '-' + f.wr_3.value,
-                type: f.querySelector('input[name="wr_4"]:checked').value,
-                message: f.wr_content.value
+                type: typeValue,
+                message: f.wr_content.value || "내용 없음",
+                agree1: f.agree.checked ? "동의함" : "미동의",
+                wr_10: "동의함" // 관심고객 등록 시 기본 동의로 간주하거나 체크박스 추가 가능
             };
+
+            console.log("EmailJS 전송 시도:", templateParams);
 
             // 이메일 전송
             emailjs.send('service_qmcu2xm', 'template_le70gei', templateParams)
                 .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
                     alert("관심고객 등록이 완료되었습니다.\n빠른 시일 내에 연락드리겠습니다.");
                     f.reset();
                 }, function(error) {
-                    alert("전송에 실패했습니다: " + JSON.stringify(error));
+                    console.error('FAILED...', error);
+                    alert("전송에 실패했습니다.\n에러 내용: " + JSON.stringify(error));
                 });
             
             return false; // 폼의 기본 제출 방지
