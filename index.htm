@@ -1,0 +1,1382 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>만안역 중앙하이츠 포레 - 공식 분양안내</title>
+<link rel="stylesheet" href="css/default.css?ver=250526025">
+<link rel="stylesheet" href="css/reset.css?ver=250526025">
+<link rel="stylesheet" href="css/swiper.min.css?ver=250526025">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<!-- EmailJS SDK -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+<style>
+    /* [모바일 전용 원페이지 스타일 - Premium Refresh] */
+    * { box-sizing: border-box; font-family: 'Pretendard', 'Noto Sans KR', sans-serif; -webkit-overflow-scrolling: touch; }
+    html, body { overflow-x: hidden; width: 100%; scroll-behavior: smooth; }
+    body { padding-top: 0; padding-bottom: 70px; background: #fff; color: #333; }
+    img { max-width: 100%; display: block; margin: 0 auto; }
+    ul, ol { list-style: none; padding: 0; margin: 0; }
+    a { text-decoration: none; color: inherit; transition: all 0.3s; }
+    
+    /* 1. 헤더 (Premium Glassmorphism) */
+    header {
+        position: fixed; top: 0; left: 0; width: 100%; height: 70px;
+        background: rgba(255, 255, 255, 0.05); /* 초기엔 거의 투명 */
+        backdrop-filter: blur(0px);
+        z-index: 1000; 
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        display: flex; justify-content: space-between; align-items: center; padding: 0 20px;
+        transition: all 0.4s ease;
+    }
+    header.scrolled { 
+        background: rgba(255, 255, 255, 0.9); 
+        backdrop-filter: blur(10px); /* 스크롤 시 블러 효과 */
+        border-bottom: 1px solid rgba(0,0,0,0.05); 
+        height: 60px; /* 스크롤 시 살짝 축소 */
+        box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+    
+    header h1 { 
+        width: 140px; height: 35px; margin: 0; 
+        transition: all 0.3s;
+    }
+    
+    header h1 a { 
+        display: block; width: 100%; height: 100%; 
+        background: url('images/logo.png') no-repeat left center/contain; 
+    }
+    header.scrolled h1 a { background-image: url('images/logo-active.png'); }
+
+    /* 헤더 우측 그룹 */
+    .header_right { display: flex; align-items: center; gap: 15px; }
+    
+    .header_tel {
+        display: flex; align-items: center; gap: 6px;
+        color: #fff; font-weight: 600; font-size: 14px;
+        padding: 6px 14px;
+        border: 1px solid rgba(255,255,255,0.6); border-radius: 4px;
+        letter-spacing: 0.5px;
+    }
+    header.scrolled .header_tel { color: #213257; border-color: rgba(33, 50, 87, 0.3); }
+
+    /* 2. 햄버거 버튼 (Modern) */
+    .mobile_menu_btn {
+        width: 24px; height: 24px; border: none; background: none; 
+        position: relative; cursor: pointer; z-index: 1002;
+        padding: 0; display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .mobile_menu_btn span {
+        display: block; width: 100%; height: 2px; background: #fff; transition: all 0.3s;
+    }
+    header.scrolled .mobile_menu_btn span { background: #111; }
+    
+    .mobile_menu_btn.active span:nth-child(1) { transform: translateY(11px) rotate(45deg); background: #111;}
+    .mobile_menu_btn.active span:nth-child(2) { opacity: 0; }
+    .mobile_menu_btn.active span:nth-child(3) { transform: translateY(-11px) rotate(-45deg); background: #111;}
+
+    /* 메뉴 컨테이너 (Premium Drawer) */
+    .mobile_menu_container {
+        position: fixed; top: 0; right: -100%; width: 100%; max-width: 380px; height: 100vh;
+        background: #fff; z-index: 1001; transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        display: flex; flex-direction: column;
+        box-shadow: -10px 0 30px rgba(0,0,0,0.1); 
+    }
+    .mobile_menu_container.active { right: 0; }
+    
+    .menu_header {
+        display: flex; justify-content: space-between; align-items: center;
+        padding: 20px 25px; border-bottom: 1px solid #f0f0f0;
+        margin-top: 0; /* 헤더 겹침 방지 */
+        height: 70px; box-sizing: border-box; background: #fff;
+    }
+    .menu_header h2 { font-size: 20px; font-weight: 800; color: #111; letter-spacing: -0.5px; margin: 0; }
+
+    .menu_close_btn {
+        width: 30px; height: 30px; border: none; background: none;
+        position: relative; cursor: pointer; display: flex; align-items: center; justify-content: center;
+        padding: 0; transition: transform 0.3s ease;
+    }
+    .menu_close_btn::before, .menu_close_btn::after {
+        content: ''; position: absolute; width: 22px; height: 2px; background: #111;
+    }
+    .menu_close_btn::before { transform: rotate(45deg); }
+    .menu_close_btn::after { transform: rotate(-45deg); }
+    .menu_close_btn:hover { transform: rotate(90deg); } /* 살짝 회전하는 효과 */
+    .nav_list { padding: 0; overflow-y: auto; flex: 1; }
+    
+    .nav_item { border-bottom: 1px solid #f5f5f5; }
+    
+    /* 1뎁스 (메인 메뉴) */
+    .nav_link {
+        display: flex; justify-content: space-between; align-items: center;
+        padding: 20px 25px; 
+        font-size: 18px; font-weight: 700; color: #111;
+        cursor: pointer; background: #fff; transition: 0.2s;
+        text-decoration: none;
+    }
+    .nav_link:hover, .nav_item.active > .nav_link { background: #fcfcfc; color: #c1985d; }
+    
+    /* 화살표 아이콘 */
+    .nav_link .arrow {
+        width: 10px; height: 10px; 
+        border-right: 2px solid #ccc; border-bottom: 2px solid #ccc;
+        transform: rotate(45deg); transition: 0.3s;
+        margin-right: 5px;
+    }
+    .nav_item.active .nav_link .arrow {
+        transform: rotate(225deg); border-color: #c1985d; margin-top: 5px;
+    }
+    .nav_link.no_sub .arrow { display: none; } /* 서브 없는 경우 */
+
+    /* 2뎁스 (서브 메뉴) */
+    .sub_menu {
+        display: none; /* 기본 숨김 */
+        background: #f8f9fa; 
+        padding: 10px 0; 
+        border-top: 1px solid #eee;
+        box-shadow: inset 0 2px 5px rgba(0,0,0,0.03);
+    }
+    .sub_menu li a {
+        display: block; 
+        padding: 12px 25px 12px 40px; /* 들여쓰기 */
+        font-size: 15px; font-weight: 500; color: #666;
+        transition: 0.2s; border-bottom: none;
+    }
+    .sub_menu li a::before {
+        content: '- '; color: #c1985d; margin-right: 5px; opacity: 0.7;
+    }
+    .sub_menu li a:hover {
+        color: #c1985d; background: #f0f0f0; padding-left: 45px;
+    }
+    .sub_menu li a::after { display: none; } /* 기존 화살표 제거 */
+
+    /* 3. 섹션 공통 스타일 (구분감 강화) */
+    section { 
+        padding: 100px 20px; /* 여백 확대 */
+        border-bottom: none; 
+    }
+    /* 섹션 배경 교차 적용 (흰색 - 연회색) */
+    section:nth-of-type(odd) { background: #fff; }
+    section:nth-of-type(even) { background: #f8f9fa; }
+
+    /* 섹션 타이틀 (대기업 스타일) */
+    section h2 { 
+        font-size: 32px; font-weight: 700; color: #111; margin-bottom: 60px; 
+        text-align: center; letter-spacing: -1px; line-height: 1.2;
+    }
+    /* 영문 서브타이틀 (가상요소 활용) */
+    section h2::before {
+        content: attr(data-eng);
+        display: block; font-size: 13px; color: #c1985d; font-weight: 600;
+        letter-spacing: 2px; margin-bottom: 15px; font-family: 'Poppins', sans-serif;
+        text-transform: uppercase;
+    }
+    section h2::after {
+        content: ''; display: block; width: 40px; height: 2px; background: #111;
+        margin: 25px auto 0;
+    }
+    
+    /* 4. 메인 비주얼 (Hero) */
+    #hero { padding: 0; height: 100vh; background: #000; }
+
+    
+    /* 배경 이미지 위 어두운 오버레이 추가 (글자 선명도 향상) */
+    #hero::before {
+        content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.4));
+        z-index: 2; pointer-events: none;
+    }
+    
+    body { padding-top: 0; }
+    
+    .mvSlide { width: 100%; height: 100%; }
+    .swiper-slide img { width: 100%; height: 100%; object-fit: cover; }
+    
+    .hero_txt {
+        position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+        text-align: center; width: 95%; z-index: 10;
+        display: flex; flex-direction: column; align-items: center;
+    }
+    
+    .hero_txt img { 
+        margin: 0 auto 15px; max-width: 95%; 
+        /* 그림자 대폭 강화 (가독성 핵심) */
+        filter: drop-shadow(0 4px 15px rgba(0,0,0,0.8)) drop-shadow(0 0 5px rgba(0,0,0,0.5)); 
+        opacity: 0; 
+        backface-visibility: hidden; /* 애니메이션 중 떨림 방지 */
+    }
+    
+    /* 텍스트 등장 애니메이션 (좌 -> 우) - 복구 및 강화 */
+    @keyframes slideInRight {
+        0% { opacity: 0; transform: translateX(-50px); }
+        100% { opacity: 1; transform: translateX(0); }
+    }
+    
+    /* 활성화된 슬라이드 애니메이션 (공통) */
+    .swiper-slide-active .hero_txt img:nth-child(1) {
+        animation: slideInRight 1s ease-out forwards;
+        animation-delay: 0.3s;
+    }
+    .swiper-slide-active .hero_txt img:nth-child(2) {
+        animation: slideInRight 1s ease-out forwards;
+        animation-delay: 0.8s;
+    }
+    .swiper-slide-active .hero_txt img:nth-child(3) {
+        animation: slideInRight 1s ease-out forwards;
+        animation-delay: 1.3s;
+    }
+
+    /* 5. 콘텐츠별 스타일 */
+    .info_table { width: 100%; border-top: 2px solid #333; border-collapse: collapse; }
+    .info_table th, .info_table td { 
+        padding: 12px 10px; border-bottom: 1px solid #ddd; font-size: 14px; 
+        list-style: none !important; /* 불릿 제거 */
+    }
+    .info_table th::before, .info_table th::after,
+    .info_table td::before, .info_table td::after { 
+        content: none !important; display: none !important; /* 가상요소 점 제거 */
+    }
+    .info_table th { background: #f9f9f9; font-weight: 500; color: #333; text-align: left; width: 30%; }
+    
+    .img_box { 
+        margin-bottom: 20px; border-radius: 10px; overflow: hidden; 
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+        list-style: none; /* 불릿 제거 */
+    }
+    .img_box::before, .img_box::after { display: none; content: none; } /* 가상요소 제거 */
+    .img_box img { width: 100%; display: block; border: none; outline: none; }
+    
+    .text_box { text-align: center; margin-bottom: 30px; font-size: 15px; line-height: 1.6; color: #555; word-break: keep-all; }
+    
+    .premium_list { display: grid; gap: 20px; }
+    
+    /* 프리미엄 섹션 슬라이드 스타일 */
+    .premium_card { 
+        margin-bottom: 20px; 
+        border-radius: 15px; overflow: hidden; 
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+        background: #fff;
+    }
+    .premium_card img { width: 100%; display: block; }
+    
+    .premium_txt { 
+        padding: 25px 20px; 
+        background: #fff; 
+        text-align: center;
+        border-top: 1px solid #f0f0f0;
+        animation: pulseText 2s infinite ease-in-out; /* 깜빡이는 애니메이션 */
+    }
+    
+    @keyframes pulseText {
+        0% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.02); opacity: 0.8; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+
+    .premium_txt h3 { 
+        font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+        font-size: 22px; font-weight: 900; /* 더 굵고 크게 */
+        margin-bottom: 12px; color: #000; /* 완전 검정으로 선명하게 */
+        letter-spacing: -1px;
+    }
+    .premium_txt p { 
+        font-size: 16px; color: #333; /* 더 진한 회색 */
+        line-height: 1.6; 
+        word-break: keep-all; font-weight: 700; /* 본문도 더 굵게 */
+    }
+
+    .premium_item { border: 1px solid #eee; border-radius: 10px; overflow: hidden; }
+    .premium_item .txt { padding: 15px; background: #fff; }
+    .premium_item h3 { font-size: 17px; font-weight: 700; color: #c1985d; margin-bottom: 5px; }
+    
+    /* 단지안내 탭 스타일 */
+    .complex_tabs {
+        display: flex; justify-content: center; gap: 10px; margin-bottom: 25px;
+    }
+    .complex_tabs li {
+        flex: 1; text-align: center; padding: 12px 0;
+        background: #fff; color: #555; font-size: 15px; font-weight: 500;
+        cursor: pointer; border: 1px solid #ddd; border-radius: 30px; transition: 0.3s;
+    }
+    .complex_tabs li.active {
+        background: #213257; color: #fff; border-color: #213257; font-weight: 700;
+        box-shadow: 0 4px 10px rgba(33, 50, 87, 0.3);
+    }
+    
+    .complex_content { display: none; animation: fadeIn 0.5s; }
+    .complex_content.active { display: block; }
+
+    /* 시설안내 탭 스타일 (단지안내와 동일) */
+    .facility_tabs {
+        display: flex; justify-content: center; gap: 10px; margin-bottom: 25px;
+    }
+    .facility_tabs li {
+        flex: 1; text-align: center; padding: 12px 0;
+        background: #fff; color: #555; font-size: 15px; font-weight: 500;
+        cursor: pointer; border: 1px solid #ddd; border-radius: 30px; transition: 0.3s;
+    }
+    .facility_tabs li.active {
+        background: #213257; color: #fff; border-color: #213257; font-weight: 700;
+        box-shadow: 0 4px 10px rgba(33, 50, 87, 0.3);
+    }
+    
+    .facility_content { display: none; animation: fadeIn 0.5s; }
+    .facility_content.active { display: block; }
+
+    /* 소식안내 탭 스타일 (시설안내와 동일) */
+    .news_tabs {
+        display: flex; justify-content: center; gap: 10px; margin-bottom: 25px;
+    }
+    .news_tabs li {
+        flex: 1; text-align: center; padding: 12px 0;
+        background: #fff; color: #555; font-size: 15px; font-weight: 500;
+        cursor: pointer; border: 1px solid #ddd; border-radius: 30px; transition: 0.3s;
+    }
+    .news_tabs li.active {
+        background: #213257; color: #fff; border-color: #213257; font-weight: 700;
+        box-shadow: 0 4px 10px rgba(33, 50, 87, 0.3);
+    }
+    
+    .news_content { display: none; animation: fadeIn 0.5s; }
+    .news_content.active { display: block; }
+
+    /* 언론보도 리스트 스타일 */
+    .press_list { border-top: 1px solid #333; }
+    .press_list li { border-bottom: 1px solid #eee; }
+    .press_list li a { 
+        display: block; padding: 15px 5px; text-decoration: none; 
+    }
+    .press_list li .subject { 
+        display: block; font-size: 15px; color: #222; font-weight: 500;
+        line-height: 1.4; margin-bottom: 5px;
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis; /* 한 줄 처리 */
+    }
+    .press_list li .date { 
+        display: block; font-size: 12px; color: #999; 
+    }
+    .press_list li a:active { background: #f9f9f9; }
+
+    /* 평면안내 탭 스타일 - 타입별 색상 적용 */
+    .unit_tabs {
+        display: flex; justify-content: center; gap: 5px; margin-bottom: 20px;
+    }
+    .unit_tabs li {
+        flex: 1; text-align: center; padding: 12px 0;
+        background: #f5f5f5; color: #666; font-size: 14px; font-weight: 700;
+        cursor: pointer; border-radius: 5px; transition: 0.3s;
+        border-bottom: 3px solid transparent;
+    }
+    
+    /* 59타입: 도면과 동일한 분홍색 */
+    .unit_tabs li[data-tab="type59"].active {
+        background: #ea547c; color: #fff; border-bottom-color: #c83e62;
+    }
+    
+    /* 66타입: 도면과 동일한 보라색 계열 */
+    .unit_tabs li[data-tab="type66a"].active,
+    .unit_tabs li[data-tab="type66b"].active {
+        background: #7b8db0; color: #fff; border-bottom-color: #5d6d91;
+    }
+    
+    /* 75타입: 도면과 동일한 하늘색 */
+    .unit_tabs li[data-tab="type75"].active {
+        background: #00adef; color: #fff; border-bottom-color: #0086bf;
+    }
+    
+    .unit_content { display: none; animation: fadeIn 0.5s; }
+    .unit_content.active { display: block; }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    /* 14. 관심고객등록 섹션 내 버튼 그룹 */
+    .contact_btn_wrap {
+        display: flex; gap: 10px; margin-top: 20px;
+    }
+    .contact_btn_wrap a {
+        flex: 1; padding: 15px 0; font-weight: bold; font-size: 16px;
+        text-align: center; border-radius: 5px; text-decoration: none;
+        display: flex; justify-content: center; align-items: center; gap: 8px;
+    }
+    .contact_btn_wrap .btn_call { background: #333; color: #fff; }
+    .contact_btn_wrap .btn_reg { background: #c1985d; color: #fff; }
+
+    /* 관심고객등록 폼 스타일 */
+    .form_box {
+        background: #fff; padding: 30px 20px; border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid #eee;
+    }
+    .input_group { margin-bottom: 20px; text-align: left; }
+    .input_group label { 
+        display: block; font-size: 15px; font-weight: 700; color: #213257; margin-bottom: 8px;
+    }
+    .input_group input[type="text"], 
+    .input_group select,
+    .input_group textarea {
+        width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 5px;
+        font-size: 15px; color: #333; transition: 0.3s; box-sizing: border-box;
+    }
+    .input_group input:focus, .input_group select:focus, .input_group textarea:focus {
+        border-color: #c1985d; outline: none; background: #fafafa;
+    }
+    .input_group textarea { height: 100px; resize: none; }
+    
+    /* 휴대전화 필드 정밀 조정 */
+    .phone_fields { 
+        display: flex; align-items: center; gap: 5px; width: 100%;
+    }
+    .phone_fields select, 
+    .phone_fields input[type="tel"] { 
+        height: 45px;
+        line-height: 45px;
+        text-align: center; 
+        padding: 0 5px !important;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 15px;
+        box-sizing: border-box;
+        appearance: none;
+        -webkit-appearance: none;
+        background-color: #fff;
+    }
+    /* 모든 칸 동일하게 3등분 배치 */
+    .phone_fields .phone_select,
+    .phone_fields input[name="wr_2"],
+    .phone_fields input[name="wr_3"] { 
+        flex: 1; 
+        min-width: 0; /* 중요: 화면 줄어들 때 같이 줄어들도록 설정 */
+        width: 100%; /* 부모 flex 컨테이너에 맞춰 너비 조정 */
+    }
+
+    .phone_fields select {
+        background: #fff url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23333%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-2.6H18.4c-5%200-9.3%201.8-12.8%205.1A17.6%2017.6%200%200%200%20.2%2085.2c0%205%201.8%209.3%205.1%2012.8l121.6%20121.6c3.5%203.5%207.8%205.1%2012.8%205.1s9.3-1.8%2012.8-5.1l121.6-121.6c3.5-3.5%205.1-7.8%205.1-12.8s-1.8-9.3-5.1-12.8z%22/%3E%3C/svg%3E') no-repeat right 8px center;
+        background-size: 10px;
+        padding-right: 20px !important;
+    }
+    .phone_fields span { 
+        font-weight: bold; color: #999; flex-shrink: 0; 
+    }
+    
+    /* 선호타입 라디오 버튼 */
+    .radio_group { display: flex; flex-wrap: wrap; gap: 8px; }
+    .radio_btn { flex: 1 0 45%; position: relative; }
+    .radio_btn input { position: absolute; opacity: 0; }
+    .radio_btn span {
+        display: block; text-align: center; padding: 10px 0;
+        background: #f5f5f5; border-radius: 5px; color: #666; font-size: 14px;
+        cursor: pointer; transition: 0.2s; border: 1px solid transparent;
+    }
+    .radio_btn input:checked + span {
+        background: #213257; color: #fff; border-color: #213257; font-weight: 700;
+        box-shadow: 0 4px 10px rgba(33, 50, 87, 0.2);
+    }
+    
+    /* 약관 동의 */
+    .agree_box { 
+        display: flex; justify-content: space-between; align-items: center; 
+        margin-bottom: 25px; font-size: 14px; padding-top: 15px; border-top: 1px solid #eee;
+    }
+    .checkbox_btn { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+    .checkbox_btn input { width: 18px; height: 18px; accent-color: #213257; }
+    .view_terms { color: #888; text-decoration: underline; font-size: 12px; }
+    
+    /* 버튼 그룹 */
+    .form_btns { display: flex; gap: 10px; }
+    .form_btns button {
+        flex: 1; padding: 15px 0; font-size: 16px; font-weight: 700; border-radius: 5px; cursor: pointer; border: none; transition: 0.2s;
+    }
+    .btn_submit { background: #c1985d; color: #fff; }
+    .btn_submit:hover { background: #b08a50; }
+    .btn_reset { background: #555; color: #fff; }
+    .btn_reset:hover { background: #333; }
+
+    /* 고정 하단 바 - 최상위 고정 */
+    .sticky_bottom_bar {
+        position: fixed !important; 
+        bottom: 0 !important; 
+        left: 0 !important; 
+        width: 100% !important; 
+        height: 60px !important;
+        background: #fff; 
+        display: flex; 
+        z-index: 2147483647 !important; /* 브라우저 최대값으로 설정하여 무조건 최상위 보장 */
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    }
+    .sticky_bottom_bar a {
+        flex: 1; display: flex; justify-content: center; align-items: center;
+        color: #fff; font-size: 16px; font-weight: bold; gap: 8px;
+        text-decoration: none;
+    }
+    .sticky_bottom_bar .call_btn { background: #333; }
+    .sticky_bottom_bar .reg_btn { background: #c1985d; }
+    
+    /* 하단 바 공간 확보를 위한 body 패딩 */
+    body { padding-bottom: 60px !important; }
+
+    /* 브랜드 소개 전용 스타일 */
+    #brand { background-color: #fff; padding: 80px 20px; }
+    .brand_title_box { 
+        text-align: center; margin-bottom: 40px; position: relative; 
+    }
+    .brand_title_box h3 {
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 28px; font-weight: 700; color: #0a2240; 
+        margin-bottom: 15px; letter-spacing: -0.5px;
+    }
+    .brand_title_box p {
+        font-family: 'Noto Serif KR', serif; /* 명조체로 우아함 강조 */
+        font-size: 16px; color: #555; line-height: 1.8; 
+        word-break: keep-all; letter-spacing: 0.5px;
+    }
+    .brand_title_box .highlight {
+        display: block; margin-top: 10px;
+        font-size: 20px; color: #c5a47e; font-weight: 500;
+        font-family: 'Noto Sans KR', sans-serif;
+    }
+    
+    /* 브랜드 카운터 디자인 개선 */
+    .brand_counter { 
+        display: flex; justify-content: center; gap: 1px; 
+        background: #f5f5f5; /* 연한 배경 */
+        padding: 30px 0; 
+        margin-top: 40px; 
+        border-top: 2px solid #0a2240; /* 상단 포인트 라인 */
+    }
+    .brand_counter > div { 
+        flex: 1; text-align: center; position: relative; 
+    }
+    .brand_counter > div:first-child::after {
+        content: ''; position: absolute; right: 0; top: 20%; height: 60%; width: 1px; background: #ddd;
+    }
+    .brand_counter span { 
+        display: block; font-size: 32px; font-weight: 800; color: #0a2240; 
+        font-family: 'Poppins', sans-serif; letter-spacing: -1px; margin-bottom: 5px;
+    }
+    .brand_counter p { 
+        font-size: 14px; color: #666; font-weight: 500; letter-spacing: 1px; text-transform: uppercase;
+    }
+
+    /* ==========================================================================
+       [오시는 길 & 관심고객등록] 짙은 네이비 테마 디자인
+       ========================================================================== */
+    
+    /* 13. 오시는 길 (Contact Us 디자인 적용) */
+    #map {
+        background-color: #1a2036 !important; /* 짙은 네이비 */
+        padding-bottom: 80px;
+        color: #fff;
+    }
+    #map h2 { color: #fff; }
+    #map h2::after { background: #c59d5f; } /* 금색 밑줄 */
+    
+    /* 지도 박스 디자인 */
+    .map_box {
+        margin-bottom: 50px;
+        text-align: center;
+    }
+    .map_box img {
+        width: 100%;
+        border-radius: 0; /* 각지게 */
+        margin-bottom: 20px;
+        border: 1px solid rgba(255,255,255,0.1);
+    }
+    .map_box h3 {
+        color: #fff;
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+    .map_box h3::after { content: '.'; color: #c59d5f; } /* 금색 점 포인트 */
+    .map_box p {
+        color: #ccc;
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+
+    /* 지도 버튼 (네이버/카카오) 디자인 */
+    .btn_group {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+    }
+    .btn_map {
+        flex: 1;
+        max-width: 160px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        background: rgba(255,255,255,0.1); /* 반투명 배경 */
+        border: 1px solid rgba(255,255,255,0.2); /* 얇은 테두리 */
+        color: #fff;
+        text-decoration: none;
+        font-size: 14px;
+        transition: 0.3s;
+    }
+    .btn_map:hover {
+        background: #fff;
+        color: #1a2036;
+    }
+    .btn_map b { margin-right: 5px; font-weight: 900; } /* N, K 아이콘 대용 */
+
+    /* 14. 관심고객등록 (동일 테마 적용) */
+    #contact { 
+        background-color: #15192b !important; /* 조금 더 짙은 네이비 */
+        padding-bottom: 100px; 
+    }
+    #contact h2 { color: #fff; }
+    #contact h2::after { background: #c59d5f; }
+    #contact .text_box { color: rgba(255,255,255,0.7); }
+    
+    .contact_btn_wrap .btn_call { background: #fff; color: #1a2036; }
+    .contact_btn_wrap .btn_reg { background: #c59d5f; color: #fff; }
+</style>
+<!-- 웹폰트 추가 (명조체) -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <h1><a href="#hero"></a></h1>
+        <div class="header_right">
+            <a href="tel:1688-0458" class="header_tel"><i>📞</i> 1688-0458</a>
+            <button class="mobile_menu_btn" type="button">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="mobile_menu_overlay"></div>
+    <div class="mobile_menu_container">
+        <div class="menu_header">
+            <h2>MENU</h2>
+            <button type="button" class="menu_close_btn"></button>
+        </div>
+        <ul class="nav_list">
+            <li class="nav_item">
+                <a href="#hero" class="nav_link no_sub">홈으로</a>
+            </li>
+            <li class="nav_item has_sub">
+                <a href="javascript:void(0);" class="nav_link">사업안내 <span class="arrow"></span></a>
+                <ul class="sub_menu">
+                    <li><a href="#overview">사업개요</a></li>
+                    <li><a href="#brand">브랜드 소개</a></li>
+                    <li><a href="#map">오시는 길</a></li>
+                </ul>
+            </li>
+            <li class="nav_item has_sub">
+                <a href="javascript:void(0);" class="nav_link">프리미엄 <span class="arrow"></span></a>
+                <ul class="sub_menu">
+                    <li><a href="#premium">프리미엄 7</a></li>
+                    <li><a href="#location">입지환경</a></li>
+                </ul>
+            </li>
+            <li class="nav_item has_sub">
+                <a href="javascript:void(0);" class="nav_link">단지정보 <span class="arrow"></span></a>
+                <ul class="sub_menu">
+                    <li><a href="#siteplan">단지 및 동호수</a></li>
+                    <li><a href="#unit">평면안내</a></li>
+                    <li><a href="#facility_info">커뮤니티 및 마감재</a></li>
+                </ul>
+            </li>
+            <li class="nav_item has_sub">
+                <a href="javascript:void(0);" class="nav_link">고객센터 <span class="arrow"></span></a>
+                <ul class="sub_menu">
+                    <li><a href="#news_info">소식 안내</a></li>
+                    <li><a href="#contact">관심고객등록</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 1. 메인 비주얼 -->
+    <section id="hero">
+        <div class="swiper-container mvSlide">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="images/mv-bg00.jpg" alt="조감도">
+                    <div class="hero_txt">
+                        <img src="images/mv-txt01.png" alt="만안역 중앙하이츠">
+                        <img src="images/mv-txt02.png" alt="프리미엄">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/mv-bg02.jpg" alt="투시도">
+                    <div class="hero_txt">
+                        <img src="images/mv-slide02-txt01.png" alt="슬라이드2 문구1">
+                        <img src="images/mv-slide02-txt02.png" alt="슬라이드2 문구2">
+                        <img src="images/mv-slide02-txt03.png" alt="슬라이드2 문구3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. 사업개요 -->
+    <section id="overview">
+        <h2 data-eng="BUSINESS OVERVIEW">사업개요</h2>
+        <div class="img_box">
+            <img src="images/sub11.jpg" alt="만안역 중앙하이츠 포레 조감도">
+        </div>
+        <table class="info_table">
+            <tbody>
+                <tr><th>사업명</th><td>석수동 적성아파트 가로주택정비사업조합</td></tr>
+                <tr><th>대지위치</th><td>경기도 안양시 만안구 석수동 284-1</td></tr>
+                <tr><th>주용도</th><td>공동주택(아파트) 및 부대복리시설</td></tr>
+                <tr><th>대지면적</th><td>2,764.10㎡</td></tr>
+                <tr><th>건축면적</th><td>799.24㎡ (건폐율 : 28.92%)</td></tr>
+                <tr><th>연면적</th><td>16,827.05㎡ (용적률 : 394.74%)</td></tr>
+                <tr><th>규모</th><td>2개동 / 지하 3층 ~ 지상 21층 (115세대)</td></tr>
+                <tr><th>주차대수</th><td>129대</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- 3. 브랜드 소개 -->
+    <section id="brand">
+        <div class="brand_title_box">
+            <h3>PREMIUM BRAND</h3>
+            <p>CA이앤씨, 끊임없는 도전이 만들어낸 저력<br>
+            <span class="highlight">만안역 중앙하이츠 포레</span></p>
+        </div>
+        <!-- 브랜드 슬라이더 -->
+        <div class="swiper-container brandSlide">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/main-brand-img01.jpg" alt="브랜드 이미지 1"></div>
+                <div class="swiper-slide"><img src="images/main-brand-img02.jpg" alt="브랜드 이미지 2"></div>
+                <div class="swiper-slide"><img src="images/main-brand-img03.jpg" alt="브랜드 이미지 3"></div>
+                <div class="swiper-slide"><img src="images/main-brand-img04.jpg" alt="브랜드 이미지 4"></div>
+                <div class="swiper-slide"><img src="images/main-brand-img05.jpg" alt="브랜드 이미지 5"></div>
+                <div class="swiper-slide"><img src="images/main-brand-img06.jpg" alt="브랜드 이미지 6"></div>
+                <div class="swiper-slide"><img src="images/main-brand-img07.jpg" alt="브랜드 이미지 7"></div>
+                <div class="swiper-slide"><img src="images/main-brand-img08.jpg" alt="브랜드 이미지 8"></div>
+                <div class="swiper-slide"><img src="images/main-brand-img09.jpg" alt="브랜드 이미지 9"></div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+        
+        <div class="brand_counter">
+            <div>
+                <span class="count-num" data-target="55824">0</span>
+                <p>TOTAL HOUSEHOLD</p>
+            </div>
+            <div>
+                <span class="count-num" data-target="40">0</span>
+                <p>YEARS HISTORY</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. 프리미엄 7 -->
+    <section id="premium">
+        <h2 data-eng="PREMIUM 7">프리미엄 7</h2>
+        <div class="swiper-container premiumSlide">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="premium_card">
+                        <img src="images/main-con02-img01.png" alt="프리미엄1">
+                        <div class="premium_txt"><h3>01. 더블시티 라이프</h3><p>KTX광명역세권 생활권 공유</p></div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="premium_card">
+                        <img src="images/main-con02-img02.png" alt="프리미엄2">
+                        <div class="premium_txt"><h3>02. 더블 역세권</h3><p>관악역(1호선), 월판선 만안역(예정)</p></div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="premium_card">
+                        <img src="images/main-con02-img03.png" alt="프리미엄3">
+                        <div class="premium_txt"><h3>03. 쾌속 교통망</h3><p>서해안, 제2경인고속도로 등 진입 용이</p></div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="premium_card">
+                        <img src="images/main-con02-img04.png" alt="프리미엄4">
+                        <div class="premium_txt"><h3>04. 안심 학세권</h3><p>충훈고, 안양중, 화창초 등 도보 통학</p></div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="premium_card">
+                        <img src="images/main-con02-img05.png" alt="프리미엄5">
+                        <div class="premium_txt"><h3>05. 숲세권 힐링</h3><p>와룡산, 석수체육공원, 안양천 산책로</p></div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="premium_card">
+                        <img src="images/main-con02-img06.png" alt="프리미엄6">
+                        <div class="premium_txt"><h3>06. 혁신 평면</h3><p>채광과 통풍이 우수한 4Bay 구조</p></div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="premium_card">
+                        <img src="images/main-con02-img07.png" alt="프리미엄7">
+                        <div class="premium_txt"><h3>07. 미래 비전</h3><p>박달 스마트밸리 등 개발 호재</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- 5. 입지환경 -->
+    <section id="location">
+        <h2 data-eng="LOCATION">입지환경</h2>
+        <div class="text_box">교통, 교육, 생활, 비전<br>모든 것이 완벽한 프리미엄 입지</div>
+        
+        <!-- 1. 고정 이미지 (중요 정보) -->
+        <div class="location_fixed" style="margin-bottom: 60px;">
+            <div class="img_box" style="margin-bottom:30px;">
+                <img src="images/sub21-map.png" alt="입지환경 지도">
+                <p style="text-align:center; padding:15px; font-size:15px; color:#c1985d; font-weight:700; background:#f9f9f9; border-radius:0 0 10px 10px;">[ 광역 입지 지도 ]</p>
+            </div>
+            <div class="img_box">
+                <img src="images/sub21-02.jpg" alt="월판선 노선도">
+                <p style="text-align:center; padding:15px; font-size:15px; color:#c1985d; font-weight:700; background:#f9f9f9; border-radius:0 0 10px 10px;">[ 월판선(예정) 노선도 ]</p>
+            </div>
+        </div>
+
+        <!-- 2. 슬라이더 (추가 이미지 3장) -->
+        <div class="slider_title" style="text-align:center; margin-bottom:20px;">
+            <span style="font-size:14px; color:#666; font-weight:600; letter-spacing:1px; border:1px solid #ddd; padding:5px 15px; border-radius:20px;">PREMIUM GALLERY</span>
+        </div>
+        <div class="swiper-container locationSlide">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="img_box">
+                        <img src="images/sub21-03.jpg" alt="주변 환경">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="img_box">
+                        <img src="images/sub12.jpg" alt="투시도">
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- 6 & 7. 단지 및 동호수 배치도 (탭 메뉴) -->
+    <section id="siteplan">
+        <h2 data-eng="COMPLEX PLAN">단지 안내</h2>
+        <div class="desc" style="text-align:center; margin-bottom:20px;">자연과 조화되는 쾌적한 단지 설계</div>
+        
+        <ul class="complex_tabs">
+            <li class="active" data-tab="plan_site">단지배치도</li>
+            <li data-tab="plan_dongho">동호수배치도</li>
+        </ul>
+
+        <div class="complex_content active" id="plan_site">
+            <div class="img_box">
+                <img src="images/sub31.jpg" alt="단지배치도">
+            </div>
+        </div>
+        <div class="complex_content" id="plan_dongho">
+            <div class="img_box">
+                <img src="images/sub32.jpg" alt="동호수배치도">
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. 평면안내 -->
+    <section id="unit">
+        <h2 data-eng="UNIT PLAN">평면안내</h2>
+        <div class="desc" style="text-align:center; margin-bottom:20px;">공간의 미학을 담은 혁신 평면 설계</div>
+        
+        <!-- 탭 메뉴 -->
+        <ul class="unit_tabs">
+            <li class="active" data-tab="type59">59㎡</li>
+            <li data-tab="type66a">66㎡A</li>
+            <li data-tab="type66b">66㎡B</li>
+            <li data-tab="type75">75㎡</li>
+        </ul>
+
+        <!-- 탭 콘텐츠 -->
+        <div class="unit_content active" id="type59">
+            <div class="img_box">
+                <img src="images/sub41-1.jpg" alt="59타입 평면도">
+            </div>
+        </div>
+        <div class="unit_content" id="type66a">
+            <div class="img_box">
+                <img src="images/sub41-2.jpg" alt="66A타입 평면도">
+            </div>
+        </div>
+        <div class="unit_content" id="type66b">
+            <div class="img_box">
+                <img src="images/sub41-3.jpg" alt="66B타입 평면도">
+            </div>
+        </div>
+        <div class="unit_content" id="type75">
+            <div class="img_box">
+                <img src="images/sub41-4.jpg" alt="75타입 평면도">
+            </div>
+        </div>
+    </section>
+
+    <!-- 9 & 10. 커뮤니티 및 마감재 (탭 메뉴) -->
+    <section id="facility_info">
+        <h2 data-eng="COMMUNITY">시설 안내</h2>
+        <div class="desc" style="text-align:center; margin-bottom:20px;">품격 있는 라이프스타일의 완성</div>
+        
+        <ul class="facility_tabs">
+            <li class="active" data-tab="comm_center">커뮤니티</li>
+            <li data-tab="finish_list">마감재 리스트</li>
+        </ul>
+
+        <div class="facility_content active" id="comm_center">
+            <div class="img_box">
+                <img src="images/sub33.jpg" alt="커뮤니티 시설">
+            </div>
+        </div>
+        <div class="facility_content" id="finish_list">
+            <div class="img_box">
+                <img src="images/sub42.jpg" alt="마감재 리스트">
+            </div>
+        </div>
+    </section>
+
+    <!-- 11 & 12. 소식 안내 (탭 메뉴) -->
+    <section id="news_info">
+        <h2 data-eng="NEWS & NOTICE">소식 안내</h2>
+        <div class="desc" style="text-align:center; margin-bottom:20px;">만안역 중앙하이츠 포레의 주요 소식</div>
+        
+        <ul class="news_tabs">
+            <li class="active" data-tab="press_release">언론보도</li>
+            <li data-tab="policy_info">주택시장 안정화 대책</li>
+        </ul>
+
+        <div class="news_content active" id="press_release">
+            <ul class="press_list">
+                <li>
+                    <a href="bbs/board.php.html?bo_table=news">
+                        <span class="subject">안양 ‘만안역 중앙하이츠 포레’ 선착순 동호수 지정 계약... 전매 제한 無</span>
+                        <span class="date">2025.11.20</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="bbs/board.php.html?bo_table=news">
+                        <span class="subject">월판선 만안역(예정) 초역세권 프리미엄... ‘만안역 중앙하이츠 포레’ 눈길</span>
+                        <span class="date">2025.11.15</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="bbs/board.php.html?bo_table=news">
+                        <span class="subject">안양 만안구 신축 아파트 ‘중앙하이츠 포레’ 115세대 본격 분양</span>
+                        <span class="date">2025.11.02</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="bbs/board.php.html?bo_table=news">
+                        <span class="subject">수도권 서남부 교통 요충지 안양 만안역... 미래가치 기대감↑</span>
+                        <span class="date">2025.10.28</span>
+                    </a>
+                </li>
+            </ul>
+            <div style="margin-top:20px; text-align:right;">
+                <a href="bbs/board.php.html?bo_table=news" style="font-size:13px; color:#888; text-decoration:underline;">보도자료 전체보기 ></a>
+            </div>
+        </div>
+        
+        <div class="news_content" id="policy_info">
+            <div class="img_box">
+                <a href="images/sub0506.pdf" target="_blank" style="display:block; padding:40px 20px; background:#f5f5f5; text-align:center; border:1px solid #ddd; border-radius:10px; color:#333;">
+                    <span style="font-size:40px; display:block; margin-bottom:15px;">📄</span>
+                    <strong style="font-size:18px; display:block; margin-bottom:5px;">주택시장 안정화 대책</strong>
+                    <span style="font-size:14px; color:#666;">자료 보기 (PDF 다운로드)</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 13. 오시는 길 -->
+    <section id="map">
+        <h2 data-eng="CONTACT US">오시는 길</h2>
+        <div class="desc" style="text-align:center; margin-bottom:40px; color:rgba(255,255,255,0.7);">현장 및 견본주택 위치 안내</div>
+        
+        <div class="map_box">
+            <img src="images/main-contact-img02.jpg" alt="현장 약도"> 
+            <h3>현장 위치</h3>
+            <p>경기도 안양시 만안구 석수동 284-1</p>
+            
+            <div class="btn_group">
+                <a href="https://naver.me/5b0gwe2X" target="_blank" class="btn_map">
+                    <b>N</b> 네이버 지도
+                </a>
+                <a href="https://kko.kakao.com/bUJnMSvY4v" target="_blank" class="btn_map">
+                    <b>K</b> 카카오 지도
+                </a>
+            </div>
+        </div>
+
+        <div class="map_box">
+            <img src="images/main-contact-img01.jpg" alt="견본주택 약도"> 
+            <h3>견본주택(모델하우스)</h3>
+            <p>경기도 광명시 일직동 514 GIDC A동 1층</p>
+            
+            <div class="btn_group">
+                <a href="https://naver.me/xlbBRyUH" target="_blank" class="btn_map">
+                    <b>N</b> 네이버 지도
+                </a>
+                <a href="https://kko.kakao.com/2H7K3NN6-3" target="_blank" class="btn_map">
+                    <b>K</b> 카카오 지도
+                </a>
+            </div>
+        </div>
+    </section>
+
+        </div>
+    </section>
+
+    <!-- 14. 관심고객등록 -->
+    <section id="contact" style="background:#f9f9f9; padding-bottom: 80px;">
+        <h2 data-eng="REGISTRATION">관심고객 등록</h2>
+        <div class="desc" style="text-align:center; margin-bottom:30px;">
+            관심고객으로 등록하시면<br>전문 상담사가 친절하게 안내해 드립니다.
+        </div>
+        
+        <div class="form_box">
+            <!-- 폼 전송 결과를 받을 숨겨진 iframe -->
+            <iframe name="hiddenframe" style="display:none; width:0; height:0;"></iframe>
+            
+            <form name="fwrite" id="fwrite" action="bbs/write_update.php" method="post" target="hiddenframe" onsubmit="return submitContactForm(this);">
+                <input type="hidden" name="w" value="">
+                <input type="hidden" name="bo_table" value="customer">
+                <input type="hidden" name="wr_subject" value="관심고객등록"> <!-- 제목 자동 설정 -->
+                <input type="hidden" name="token" value="">
+                
+                <div class="input_group">
+                    <label for="wr_name">이름</label>
+                    <input type="text" name="wr_name" id="wr_name" required placeholder="성함을 입력해주세요">
+                </div>
+
+                <div class="input_group">
+                    <label>휴대전화</label>
+                    <div class="phone_fields">
+                        <select name="wr_1" class="phone_select">
+                            <option value="010">010</option>
+                            <option value="011">011</option>
+                            <option value="016">016</option>
+                            <option value="017">017</option>
+                            <option value="018">018</option>
+                            <option value="019">019</option>
+                        </select>
+                        <span>-</span>
+                        <input type="tel" name="wr_2" maxlength="4" required>
+                        <span>-</span>
+                        <input type="tel" name="wr_3" maxlength="4" required>
+                    </div>
+                </div>
+
+                <div class="input_group">
+                    <label>선호타입</label>
+                    <div class="radio_group">
+                        <label class="radio_btn"><input type="radio" name="wr_4" value="59㎡" checked> <span>59㎡</span></label>
+                        <label class="radio_btn"><input type="radio" name="wr_4" value="66㎡A"> <span>66㎡A</span></label>
+                        <label class="radio_btn"><input type="radio" name="wr_4" value="66㎡B"> <span>66㎡B</span></label>
+                        <label class="radio_btn"><input type="radio" name="wr_4" value="75㎡"> <span>75㎡</span></label>
+                    </div>
+                </div>
+
+                <div class="input_group">
+                    <label for="wr_content">문의내용</label>
+                    <textarea name="wr_content" id="wr_content" placeholder="궁금하신 점을 자유롭게 남겨주세요."></textarea>
+                </div>
+
+                <div class="agree_box">
+                    <label class="checkbox_btn">
+                        <input type="checkbox" name="agree" value="1" required>
+                        <span>개인정보 수집 및 이용에 동의합니다.</span>
+                    </label>
+                    <a href="javascript:void(0)" onclick="alert('개인정보의 수집 및 이용목적 : 분양정보 안내 및 상담\n수집하는 개인정보 항목 : 이름, 전화번호\n보유 및 이용기간 : 분양 완료 시까지')" class="view_terms">[전문보기]</a>
+                </div>
+
+                <div class="form_btns">
+                    <button type="submit" class="btn_submit">등록하기</button>
+                    <button type="reset" class="btn_reset">다시쓰기</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer style="background:#222; padding: 40px 20px 100px; color:rgba(255,255,255,0.6); font-size:12px; line-height:1.6; letter-spacing:-0.5px;">
+        <div class="f_logo" style="margin-bottom:20px; opacity:0.8;">
+            <img src="images/f-logo.png" alt="만안역 중앙하이츠 포레 로고" style="width:140px; margin:0;">
+        </div>
+        <div class="f_info">
+            <p style="margin-bottom:10px;">
+                <strong style="color:#fff;">현장주소</strong> : 경기도 안양시 만안구 석수동 284-1<br>
+                <strong style="color:#fff;">견본주택</strong> : 경기도 광명시 일직동 514 GIDC A동 1층
+            </p>
+            <p style="margin-bottom:15px;">
+                <span style="display:inline-block; margin-right:10px;">시행 : 석수동 적성아파트 가로주택정비사업조합</span>
+                <span style="display:inline-block; margin-right:10px;">시공 : 동우개발(주)</span>
+            </p>
+            <p style="margin-bottom:15px;">
+                <span style="display:inline-block; margin-right:10px;">고객센터 : 1688-0458</span>
+                <span style="display:inline-block; margin-right:10px;">담당 : 신현희</span>
+                <span style="display:inline-block;">이메일 : mp1500@naver.com</span>
+            </p>
+            <p style="font-size:11px; color:rgba(255,255,255,0.4); margin-bottom:20px; border-top:1px solid rgba(255,255,255,0.1); padding-top:15px;">
+                ※ 본 사이트의 이미지는 소비자의 이해를 돕기 위해 제작된 것으로 실제와 다소 차이가 있을 수 있습니다.<br>
+                ※ 본 사이트 상의 개발계획 및 예정사항은 관계기관의 사정에 따라 변경될 수 있습니다.<br>
+                ※ 하자 등에 따른 피해보상은 주택법 등 관련 법령에 의거하여 적용됩니다.
+            </p>
+            <p class="copyright" style="font-family:'Poppins'; font-size:11px;">COPYRIGHT © 2025 MANAN STATION JUNGANG HEIGHTS FORET. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+    <!-- 고정 하단 바 -->
+    <div class="sticky_bottom_bar">
+    <a href="tel:1688-0458" class="call_btn">
+        <span class="icon">📞</span>
+        <span class="txt">전화상담</span>
+    </a>
+    <a href="bbs/write.php.html?bo_table=customer" class="reg_btn">
+        <span class="icon">📝</span>
+        <span class="txt">관심고객등록</span>
+    </a>
+</div>
+
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // 1. 메인 슬라이더
+            var mvSlide = new Swiper('.mvSlide', {
+                loop: true,
+                effect: 'fade',
+                autoplay: { delay: 3000, disableOnInteraction: false },
+                speed: 1000
+            });
+
+            // 2. 브랜드 슬라이더
+            var brandSlide = new Swiper('.brandSlide', {
+                loop: true,
+                autoplay: { delay: 3000, disableOnInteraction: false },
+                speed: 800,
+                pagination: { el: '.brandSlide .swiper-pagination', clickable: true },
+                spaceBetween: 20
+            });
+
+            // 3. 프리미엄 슬라이더
+            var premiumSlide = new Swiper('.premiumSlide', {
+                loop: true,
+                autoplay: { delay: 3000, disableOnInteraction: false },
+                speed: 800,
+                pagination: { el: '.premiumSlide .swiper-pagination', clickable: true },
+                spaceBetween: 20,
+                slidesPerView: 1.2, // 옆 카드 살짝 보이게
+                centeredSlides: true
+            });
+
+            // 4. 입지환경 슬라이더
+            var locationSlide = new Swiper('.locationSlide', {
+                loop: true,
+                autoplay: { delay: 3000, disableOnInteraction: false },
+                speed: 800,
+                pagination: { el: '.locationSlide .swiper-pagination', clickable: true },
+                spaceBetween: 20
+            });
+
+            // 4. 숫자 카운팅 애니메이션 (브랜드 소개)
+            var counterStarted = false;
+            $(window).scroll(function() {
+                var brandTop = $('.brand_counter').offset().top - window.innerHeight + 100;
+                if (!counterStarted && $(window).scrollTop() > brandTop) {
+                    $('.count-num').each(function() {
+                        var $this = $(this);
+                        var target = parseInt($this.attr('data-target'));
+                        
+                        $({ val: 0 }).animate({ val: target }, {
+                            duration: 2000,
+                            easing: 'swing',
+                            step: function() {
+                                $this.text(Math.floor(this.val).toLocaleString());
+                            },
+                            complete: function() {
+                                $this.text(target.toLocaleString());
+                            }
+                        });
+                    });
+                    counterStarted = true;
+                }
+            });
+
+            // 5. 햄버거 메뉴 열기/닫기
+            function toggleMenu() {
+                var $btn = $('.mobile_menu_btn');
+                var $container = $('.mobile_menu_container');
+                var $overlay = $('.mobile_menu_overlay');
+                
+                if ($container.hasClass('active')) {
+                    // 메뉴 닫기
+                    $btn.removeClass('active');
+                    $container.removeClass('active');
+                    $overlay.removeClass('active');
+                    $('body').css('overflow', '');
+                } else {
+                    // 메뉴 열기
+                    $btn.addClass('active');
+                    $container.addClass('active');
+                    $overlay.addClass('active');
+                    $('body').css('overflow', 'hidden');
+                }
+            }
+
+            $('.mobile_menu_btn, .mobile_menu_overlay, .menu_close_btn').click(function(e){
+                e.preventDefault();
+                e.stopPropagation();
+                toggleMenu();
+            });
+
+            // [추가] 아코디언 메뉴 동작 (1뎁스 클릭 시)
+            $('.nav_link').click(function(e) {
+                // 서브 메뉴가 있는 경우 (has_sub 클래스 확인 또는 형제 요소 확인)
+                if($(this).siblings('.sub_menu').length > 0) {
+                    e.preventDefault(); // 링크 이동 방지
+                    
+                    var $parentLi = $(this).parent('.nav_item');
+                    
+                    // 다른 메뉴 닫기 (하나만 열리게 하려면 주석 해제)
+                    // $('.nav_item').not($parentLi).removeClass('active').find('.sub_menu').slideUp(300);
+                    
+                    // 현재 메뉴 토글
+                    $parentLi.toggleClass('active');
+                    $(this).siblings('.sub_menu').stop().slideToggle(300);
+                } else {
+                    // 서브 메뉴 없는 링크(홈으로 등)는 이동 후 메뉴 닫기
+                    var target = $(this).attr('href');
+                    if(target.startsWith('#')) {
+                        e.preventDefault();
+                        var offset = $(target).offset().top; 
+                        $('html, body').animate({scrollTop : offset}, 500);
+                        toggleMenu();
+                    }
+                }
+            });
+
+            // 서브 메뉴 클릭 시 이동 및 메뉴 닫기
+            $('.sub_menu a').click(function(e){
+                var target = $(this).attr('href');
+                if(target.startsWith('#')) {
+                    e.preventDefault();
+                    var offset = $(target).offset().top; 
+                    $('html, body').animate({scrollTop : offset}, 500);
+                    toggleMenu();
+                }
+            });
+
+            // 3. (기존 코드 제거됨 - 위 로직으로 대체)
+            // 하단 바 링크 클릭 시 부드럽게 스크롤 이동
+            $('.sticky_bottom_bar a[href^="#"]').click(function(e){
+                var target = $(this).attr('href');
+                if(target.startsWith('#')) {
+                    e.preventDefault();
+                    var offset = $(target).offset().top; 
+                    $('html, body').animate({scrollTop : offset}, 500);
+                }
+            });
+
+            // 4. 스크롤 시 헤더 스타일 변경
+            $(window).scroll(function(){
+                if ($(this).scrollTop() > 50) {
+                    $('header').addClass('scrolled');
+                } else {
+                    $('header').removeClass('scrolled');
+                }
+            });
+
+            // 5. 평면안내 탭 기능
+            $('.unit_tabs li').click(function(){
+                var tab_id = $(this).attr('data-tab');
+
+                $('.unit_tabs li').removeClass('active');
+                $('.unit_content').removeClass('active');
+
+                $(this).addClass('active');
+                $("#"+tab_id).addClass('active');
+            });
+
+            // 6. 단지안내 탭 기능
+            $('.complex_tabs li').click(function(){
+                var tab_id = $(this).attr('data-tab');
+
+                $('.complex_tabs li').removeClass('active');
+                $('.complex_content').removeClass('active');
+
+                $(this).addClass('active');
+                $("#"+tab_id).addClass('active');
+            });
+
+            // 7. 시설안내 탭 기능
+            $('.facility_tabs li').click(function(){
+                var tab_id = $(this).attr('data-tab');
+
+                $('.facility_tabs li').removeClass('active');
+                $('.facility_content').removeClass('active');
+
+                $(this).addClass('active');
+                $("#"+tab_id).addClass('active');
+            });
+
+            // 8. 소식안내 탭 기능
+            $('.news_tabs li').click(function(){
+                var tab_id = $(this).attr('data-tab');
+
+                $('.news_tabs li').removeClass('active');
+                $('.news_content').removeClass('active');
+
+                $(this).addClass('active');
+                $("#"+tab_id).addClass('active');
+            });
+        });
+
+        // 관심고객 등록 폼 전송 핸들러 (EmailJS 연동)
+        function submitContactForm(f) {
+            if (!f.agree.checked) {
+                alert("개인정보 수집 및 이용에 동의해주셔야 합니다.");
+                f.agree.focus();
+                return false;
+            }
+            if (!f.wr_name.value) {
+                alert("이름을 입력해주세요.");
+                f.wr_name.focus();
+                return false;
+            }
+            if (!f.wr_2.value || !f.wr_3.value) {
+                alert("휴대전화 번호를 입력해주세요.");
+                f.wr_2.focus();
+                return false;
+            }
+            
+            // EmailJS 초기화
+            emailjs.init("ClFUoaELQQNLN8FPG");
+
+            // 전송할 데이터 준비
+            var templateParams = {
+                name: f.wr_name.value,
+                phone: f.wr_1.value + '-' + f.wr_2.value + '-' + f.wr_3.value,
+                type: f.querySelector('input[name="wr_4"]:checked').value,
+                message: f.wr_content.value
+            };
+
+            // 이메일 전송
+            emailjs.send('service_qmcu2xm', 'template_le70gei', templateParams)
+                .then(function(response) {
+                    alert("관심고객 등록이 완료되었습니다.\n빠른 시일 내에 연락드리겠습니다.");
+                    f.reset();
+                }, function(error) {
+                    alert("전송에 실패했습니다: " + JSON.stringify(error));
+                });
+            
+            return false; // 폼의 기본 제출 방지
+        }
+    </script>
+</body>
+</html>

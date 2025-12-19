@@ -1,0 +1,357 @@
+@charset "utf-8";
+
+@import url('../css2');
+@import url('../css2-1');
+@import url('../css2-2');
+@import url('../gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100..900;1,100..900&display=swap');
+
+@font-face {font-family:'Thesignature';font-weight:400;src:url('../font/Thesignature.otf'), url('../font/Thesignature.woff');}
+
+html,body{height: 100%;font-family: "Noto Sans KR"; overflow-x: hidden; width: 100%;}
+.wrap{height: 100%; width: 100%; position: relative; max-width:100%; margin:0 auto; opacity: 0;}
+.inner{max-width: 100%; margin: 0 auto; position: relative; width: 100%; padding: 0 20px; box-sizing: border-box;}
+.subwrap .content .inner {max-width: 1200px; padding: 0 20px;}
+.inner.in_1400{width:100%;}
+.inner.in_1460{width:100%;}
+.section{overflow:hidden;}
+.wrap.open{opacity: 1;}
+
+/* ============================================================
+   HEADER (Mobile Only Layout for all screens)
+   ============================================================ */
+header.remove { opacity: 0; visibility: hidden; transition: all 0.8s; }
+header { 
+    position: fixed !important; 
+    top: 0; left: 0; 
+    width: 100%; 
+    z-index: 10006 !important; 
+    padding: 0 20px; 
+    transition: none !important; 
+    text-align: center; 
+    height: 60px !important; 
+    background: #fff; 
+    border-bottom: 1px solid #eee;
+}
+header:before { content: ""; display: none !important; }
+header .head_in { 
+    max-width: 100% !important; 
+    margin: 0 auto; 
+    position: relative; 
+    height: 60px !important; 
+    min-width: 100% !important; 
+    overflow: visible !important; 
+    z-index: 10; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+}
+header h1 { 
+    position: absolute; 
+    top: 50% !important; 
+    transform: translateY(-50%) !important; 
+    left: 20px; 
+    margin: 0; 
+    max-width: 55%; 
+}
+header h1 a { 
+    display: block; 
+    width: 161px !important; 
+    height: 33px !important; 
+    background: url(../images/logo-active.png) no-repeat center !important; 
+    background-size: contain !important; 
+}
+
+/* PC Menu - Completely Removed/Hidden */
+header .menu { display: none !important; }
+header .menu > ul { display: none !important; }
+
+/* Header Right Section */
+header .rig { 
+    position: absolute; 
+    right: 15px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    display: flex; 
+    align-items: center; 
+    gap: 0 16px; 
+    z-index: 10002 !important; 
+    pointer-events: auto !important; 
+}
+header .rig .open { display: none; }
+header .rig .tel a { text-decoration: none; color: inherit; display: block; }
+header .rig .tel p { 
+    padding-left: 22px; 
+    color: #333; 
+    font-family: "Jost"; 
+    font-size: 15px; 
+    font-weight: 700; 
+    background: url(../images/h-tell-active.png) no-repeat left center / 16px 16px; 
+    transition: 0.3s; 
+    display: flex; 
+    align-items: center; 
+    gap: 5px; 
+    margin: 0; 
+    white-space: nowrap; 
+}
+header .rig .tel p strong { font-size: 16px; font-weight: 600; }
+
+/* ============================================================
+   MOBILE MENU & HAMBURGER BUTTON (Always Active)
+   ============================================================ */
+
+/* 햄버거 버튼 - 화면 최상위 고정 */
+.mobile_menu_btn { 
+    display: flex !important; 
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    position: fixed !important;
+    top: 8px !important;
+    right: 15px !important;
+    z-index: 10007 !important; /* Above header */
+    width: 44px !important; 
+    height: 44px !important; 
+    background: none !important; 
+    border: none !important; 
+    cursor: pointer !important; 
+    pointer-events: auto !important;
+    flex-shrink: 0 !important;
+    outline: none !important;
+}
+
+.mobile_menu_btn span { 
+    display: block !important; 
+    width: 24px !important; 
+    height: 2px !important; 
+    background-color: #333 !important; 
+    margin: 3px 0 !important; 
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
+    pointer-events: none !important;
+}
+
+/* 버튼 활성화 시 (X자 변환) */
+.mobile_menu_btn.active span { background-color: #fff !important; }
+.mobile_menu_btn.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px) !important; }
+.mobile_menu_btn.active span:nth-child(2) { opacity: 0 !important; transform: scaleX(0) !important; }
+.mobile_menu_btn.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px) !important; }
+
+/* 사이드 슬라이드 메뉴 컨테이너 */
+.mobile_menu_container { 
+    display: block !important; 
+    position: fixed !important; 
+    top: 0 !important;
+    right: -100% !important; /* 화면 밖 대기 */
+    left: auto !important;
+    width: 75% !important; 
+    max-width: 400px !important;
+    height: 100vh !important; 
+    background: #fff !important; 
+    z-index: 10001 !important; 
+    transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    padding-top: 80px !important; 
+    box-sizing: border-box !important; 
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    box-shadow: -4px 0 20px rgba(0,0,0,0.1) !important;
+}
+
+.mobile_menu_container.active { 
+    right: 0 !important; /* 화면으로 슬라이드 인 */
+}
+
+/* 메뉴 항목 애니메이션 (순차적 등장) */
+.mobile_menu_container .gnb1 {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    border-bottom: 1px solid #eee;
+}
+
+.mobile_menu_container.active .gnb1 {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mobile_menu_container.active .gnb1:nth-child(1) { transition-delay: 0.1s; }
+.mobile_menu_container.active .gnb1:nth-child(2) { transition-delay: 0.15s; }
+.mobile_menu_container.active .gnb1:nth-child(3) { transition-delay: 0.2s; }
+.mobile_menu_container.active .gnb1:nth-child(4) { transition-delay: 0.25s; }
+.mobile_menu_container.active .gnb1:nth-child(5) { transition-delay: 0.3s; }
+.mobile_menu_container.active .gnb1:nth-child(6) { transition-delay: 0.35s; }
+.mobile_menu_container.active .gnb1:nth-child(7) { transition-delay: 0.4s; }
+
+/* 오버레이 (배경 어둡게) */
+.mobile_menu_overlay {
+    display: none !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100vh !important;
+    background: rgba(0, 0, 0, 0.5) !important;
+    z-index: 10000 !important;
+    opacity: 0 !important;
+    transition: opacity 0.4s ease-in-out !important;
+}
+
+.mobile_menu_overlay.active {
+    display: block !important;
+    opacity: 1 !important;
+}
+
+/* 메뉴 리스트 스타일 */
+.mobile_menu_container ul { 
+    display: flex !important; 
+    flex-direction: column !important; 
+    padding: 0 20px; 
+    margin: 0 !important;
+    background-color: #fff !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    list-style: none !important;
+}
+
+.mobile_menu_container .gnb1 > a { 
+    display: flex !important; 
+    width: 100% !important; 
+    font-size: 18px; 
+    font-weight: 600; 
+    color: #333 !important;
+    padding: 20px 0; 
+    justify-content: space-between; 
+    align-items: center; 
+    text-decoration: none !important;
+    position: relative;
+}
+
+/* Arrow icon for sub-menu */
+.mobile_menu_container .gnb1 > a::after { 
+    content: ''; 
+    display: block; 
+    width: 10px; height: 10px; 
+    border-top: 2px solid #333; 
+    border-right: 2px solid #333; 
+    transform: rotate(135deg); 
+    transition: 0.3s; 
+}
+.mobile_menu_container .gnb1.open > a::after { 
+    transform: rotate(-45deg); 
+}
+
+/* 서브메뉴 스타일 */
+.mobile_menu_container .gnb2 { 
+    display: none; 
+    background: #f7f7f7; 
+    padding: 10px 0 !important; 
+    margin: 0;
+    border-radius: 8px; 
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.mobile_menu_container .gnb2 li { 
+    border-bottom: none !important; 
+    padding: 0 !important;
+    width: 100% !important;
+}
+
+.mobile_menu_container .gnb2 li a { 
+    display: block !important;
+    font-size: 15px !important; 
+    color: #666 !important; 
+    padding: 12px 15px !important; 
+    text-align: center !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    transition: all 0.2s !important;
+    text-decoration: none !important;
+}
+
+.mobile_menu_container .gnb2 li a:hover { 
+    color: #213257 !important;
+    background: #fff !important;
+}
+
+/* ============================================================
+   STICKY BOTTOM BAR (Always Active)
+   ============================================================ */
+.sticky_bottom_bar {
+    display: flex !important;
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 60px !important;
+    z-index: 10010 !important;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1) !important;
+    background-color: #fff;
+}
+.sticky_bottom_bar a {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    gap: 8px;
+}
+.sticky_bottom_bar .call_btn {
+    background-color: #fff;
+    color: #213257;
+    border-top: 1px solid #eee;
+}
+.sticky_bottom_bar .reg_btn {
+    background-color: #213257;
+    color: #fff;
+}
+.sticky_bottom_bar .icon { font-size: 18px; }
+
+/* footer padding for sticky bar */
+footer { padding-bottom: 80px !important; }
+
+/* ============================================================
+   CONTENT ADJUSTMENTS (Mobile View for all)
+   ============================================================ */
+.section, .fp-section, .fp-tableCell { height: auto !important; padding: 60px 0 !important; display: block !important; }
+
+/* Visual / MV Section */
+.mv { height: 100vh !important; min-height: 500px; position: relative; overflow: hidden; }
+.mv .mvBgWrap .bg02 { width: 100%; height: 100%; left: 0; top: 0; margin: 0; position: relative; }
+.mv .mvBgWrap .bg02 img { width: 100%; height: 100%; object-fit: cover; }
+.mv .mvSlide .item .bg { width: 100%; height: 100%; left: 0; top: 0; margin: 0; }
+.mv .mvSlide .item .bg img { width: 100%; height: 100%; object-fit: cover; }
+.mv .mvSlide .item .txtBox { 
+    width: 90%; left: 50%; top: 50%; 
+    transform: translate(-50%, -50%) !important; 
+    text-align: center; 
+    position: absolute; 
+    z-index: 5;
+}
+.mv .mvSlide .item .txtBox img { max-width: 80%; height: auto; }
+
+/* Main Sections Responsive */
+.main .premium { flex-direction: column; padding: 60px 0; height: auto; align-items: center; }
+.main .premiumTit { position: relative; left: 0; top: 0; transform: none; text-align: center; margin-bottom: 40px; width: 100%; }
+.main .location { height: auto; padding: 60px 0; position: relative; }
+.main .brand { height: auto; padding: 60px 0; }
+.main .contact { height: auto; padding: 60px 0; }
+
+/* General Cleanup */
+.fp-viewing-6 header { opacity: 1 !important; pointer-events: auto !important; }
+.scroll { display: none !important; } /* Hide desktop scroll indicator */
+
+/* Sub Page Common */
+.sub_top .sub_tit { padding: 100px 0 40px; text-align: center; }
+.sub_top .sub_tit dl dt p { font-size: 28px; }
+.sub_menu .inner { flex-direction: column; }
+.sub_menu .home { display: none; }
+.sub_menu .depth { width: 100%; padding: 0; overflow-x: auto; }
+.sub_menu .depth ul { display: flex; flex-wrap: nowrap; padding: 0; }
+.sub_menu .depth ul li { flex: 0 0 auto; height: 50px; line-height: 50px; }
+.sub_menu .depth ul li a { padding: 0 15px; font-size: 14px; }
+
+.content .inner img { max-width: 100% !important; height: auto !important; display: block; margin: 0 auto !important; transform: none !important; }

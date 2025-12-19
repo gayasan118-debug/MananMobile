@@ -1,0 +1,23 @@
+# XML 파일에 올바른 Content-Type 설정
+<IfModule mod_mime.c>
+    AddType application/xml .xml
+    AddType text/xml .xml
+</IfModule>
+
+# sitemap.xml 파일에 특별히 XML Content-Type 강제 설정
+<FilesMatch "sitemap\.xml$">
+    <IfModule mod_headers.c>
+        Header set Content-Type "application/xml; charset=UTF-8"
+    </IfModule>
+    # sitemap.xml 파일 접근 허용
+    Order allow,deny
+    Allow from all
+</FilesMatch>
+
+# robots.txt 파일 설정
+<FilesMatch "robots\.txt$">
+    <IfModule mod_headers.c>
+        Header set Content-Type "text/plain; charset=UTF-8"
+    </IfModule>
+</FilesMatch>
+

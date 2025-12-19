@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+# 네이버 검색 로봇 (Yeti)
+User-agent: Yeti
+Allow: /
+
+# Sitemap
+Sitemap: https://xn--om2b95a99s7bt4be5et2dc4ov7m6nd.com/sitemap.xml
+Sitemap: https://xn--om2b95a99s7bt4be5et2dc4ov7m6nd.com/rss.xml
